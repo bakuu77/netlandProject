@@ -1,8 +1,10 @@
 
+import { Position } from '../positions.enum';
+
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { Position } from '../positions.enum';
+import { EmployeeService } from '../services/employee.service';
 
 @Component({
   selector: 'app-form',
@@ -12,15 +14,28 @@ import { Position } from '../positions.enum';
   styleUrl: './form.component.scss'
 })
 export class FormComponent {
-  applyForm = new FormGroup({
-    name: new FormControl(''),
-    age: new FormControl(''),
-    isFullTime: new FormControl(false),
-    position: new FormControl(''),
+  constructor(private employeeService: EmployeeService) {}
+  employeeForm = new FormGroup({
+    name: new FormControl(),
+    age: new FormControl(),
+    isFullTime: new FormControl(),
+    position: new FormControl(),
   })
+  addUser(name: string, age: number, isFullTime: boolean, position: Position) {
+    this.employeeService.addUser(name, age, isFullTime, position).subscribe()
+  }
   submitApplication() {
-    console.log(this.applyForm.value)
+    console.log(this.employeeForm.value)
+    this.addUser(
+      this.employeeForm.value.name,
+      this.employeeForm.value.age,
+      this.employeeForm.value.isFullTime,
+      this.employeeForm.value.position)
   };
   pozycje = Position;
   sortPos() { return 0 };
+  setNewName(employeeName: string): void {
+    console.log('setNewName', employeeName)
+  }
+  
 }

@@ -1,0 +1,25 @@
+{
+  "employees": [
+    {
+      "name": "Blazej",
+      "age": 21,
+      "isFullTime": true,
+      "position": "Junior",
+      "id": "81c8"
+    },
+    {
+      "name": "Jakub",
+      "age": 15,
+      "isFullTime": false,
+      "position": "Junior",
+      "id": "51ba"
+    },
+    {
+      "name": "Marian",
+      "age": 23,
+      "isFullTime": true,
+      "position": "Senior",
+      "id": "e70c"
+    }
+  ]
+}
