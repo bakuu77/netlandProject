@@ -1,0 +1,10 @@
+
+@for (employee of employees; track employee){
+    <div>
+        Imie: {{ employee.name }}
+        Wiek: {{ employee.age }}
+        Czy pracuje na pełny etat? {{ employee.isFullTime }}
+        Pozycja: {{ employee.position }}
+        <span (click)="removeUser(employee.id)">Remove</span>
+    </div>
+}
