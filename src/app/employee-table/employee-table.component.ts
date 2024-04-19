@@ -1,4 +1,5 @@
 
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { EmployeeNetland } from '../employee.interface';
 import { Position } from '../positions.enum';
 import { EmployeeService } from '../services/employee.service';
@@ -8,7 +9,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-employee-table',
   standalone: true,
-  imports: [ ],
+  imports: [ RouterLink, RouterLinkActive ],
   templateUrl: './employee-table.component.html',
   styleUrl: './employee-table.component.scss'
 })
