@@ -1,25 +1,25 @@
 {
   "employees": [
     {
-      "name": "Blazej",
-      "age": 21,
+      "id": "b11fc3ff11cef.8",
+      "name": "Błażej",
+      "age": 12,
       "isFullTime": true,
-      "position": "Junior",
-      "id": "81c8"
+      "position": "Mid"
     },
     {
-      "name": "Jakub",
-      "age": 15,
-      "isFullTime": false,
-      "position": "Junior",
-      "id": "51ba"
+      "id": "11b85e6f96eb63",
+      "name": "Julia Obała ",
+      "age": 20,
+      "isFullTime": null,
+      "position": null
     },
     {
-      "name": "Marian",
-      "age": 23,
-      "isFullTime": true,
-      "position": "Senior",
-      "id": "e70c"
+      "id": "1bf495958c31df",
+      "name": null,
+      "age": null,
+      "isFullTime": null,
+      "position": null
     }
   ]
 }

@@ -5,16 +5,18 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { EmployeeService } from '../services/employee.service';
+import { Router, RouterLink, RouterLinkActive, RouterModule, RouterOutlet } from '@angular/router';
+
 
 @Component({
   selector: 'app-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './form.component.html',
   styleUrl: './form.component.scss'
 })
 export class FormComponent {
-  constructor(private employeeService: EmployeeService) {}
+  constructor(private employeeService: EmployeeService, private router:Router) {}
   employeeForm = new FormGroup({
     name: new FormControl(),
     age: new FormControl(),
@@ -31,11 +33,10 @@ export class FormComponent {
       this.employeeForm.value.age,
       this.employeeForm.value.isFullTime,
       this.employeeForm.value.position)
+    
+    this.router.navigateByUrl('/table-view')
   };
   pozycje = Position;
   sortPos() { return 0 };
-  setNewName(employeeName: string): void {
-    console.log('setNewName', employeeName)
-  }
   
 }
