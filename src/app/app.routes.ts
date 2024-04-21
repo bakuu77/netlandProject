@@ -4,16 +4,18 @@ import { EmployeeTableComponent } from './employee-table/employee-table.componen
 
 export const routes: Routes = [
     {
-        path: 'form-view',
+        path: 'form',
         component: FormComponent,
         title: 'Formularz'
     },
     {
-        path: 'table-view',
+        path: 'table',
         component: EmployeeTableComponent,
         title: 'Tablica pracowników'
     },
     {
-        path: '',   redirectTo: '/form-view', pathMatch: 'full'
+        path: '',
+        component: FormComponent,
+        title: 'main page'
     }
 ];

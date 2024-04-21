@@ -26,15 +26,13 @@ export class FormComponent {
   addUser(name: string, age: number, isFullTime: boolean, position: Position) {
     this.employeeService.addUser(name, age, isFullTime, position).subscribe()
   }
-  submitApplication() {
+  submitApplication():void {
     console.log(this.employeeForm.value)
     this.addUser(
       this.employeeForm.value.name,
       this.employeeForm.value.age,
       this.employeeForm.value.isFullTime,
       this.employeeForm.value.position)
-    
-    this.router.navigateByUrl('/table-view')
   };
   pozycje = Position;
   sortPos() { return 0 };

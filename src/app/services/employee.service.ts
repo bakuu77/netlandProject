@@ -13,21 +13,20 @@ export class EmployeeService {
     }
     constructor(private http: HttpClient) {}
     getEmployees(): Observable<EmployeeNetland[]> {
-        return this.http.get<EmployeeNetland[]>(`http://localhost:3000/employees`)
+        return this.http.get<EmployeeNetland[]>(`https://bakuu77.github.io/api_host/db.json`)
     }
-    removeEmployee(id: string): Observable<{}> {
-        return this.http.delete(`http://localhost:3000/employees/${id}`)
+    removeEmployee(id: number): Observable<{}> {
+        return this.http.delete(`https://bakuu77.github.io/api_host/db.json/${id}`)
     }
     addUser(name: string, age: number, isFullTime: boolean, position: Position): Observable<EmployeeNetland> {
         const random = Math.random() * Math.pow(10, 16)
-        const uniqueId = random.toString(16)
         const employee = {
             name,
             age,
             isFullTime,
             position,
-            id: uniqueId
+            id: random
         }
-        return this.http.post<EmployeeNetland>(`http://localhost:3000/employees`, employee)
+        return this.http.post<EmployeeNetland>(`https://bakuu77.github.io/api_host/db.json`, employee)
     }
 }

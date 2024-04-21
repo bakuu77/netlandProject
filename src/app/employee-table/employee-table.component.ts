@@ -19,12 +19,15 @@ export class EmployeeTableComponent {
   constructor(private employeeService: EmployeeService) {}
   ngOnInit(): void {
     this.employeeService.getEmployees()
-      .subscribe((employees: EmployeeNetland[]) =>{
-        console.log("Res: ", employees)
-        this.employees = employees
+      .subscribe((data) =>{
+        console.log("Res: ", data)
+        for (var employee in data) {
+          console.log(employee)
+        }
+        this.employees = data
       })
   }
-  removeUser(id: string): void {
+  removeUser(id: number): void {
     this.employeeService.removeEmployee(id).subscribe(() => {
       this.employees = this.employees.filter(employee => employee.id !== id)
     })

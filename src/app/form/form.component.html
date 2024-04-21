@@ -1,4 +1,4 @@
-<form [formGroup]="employeeForm" (submit)="submitApplication()">
+<form [formGroup]="employeeForm">
       <label for="imieNazwisko">Imie i nazwisko:</label>
       <input type="text" id="imieNazwisko" formControlName="name">
       <br>
@@ -13,5 +13,5 @@
         <option *ngFor="let pozycja of pozycje | keyvalue: sortPos">{{pozycja.value}}</option>
       </select>
       <hr>
-      <button type="submit" class="primary">Zastosuj</button>
+      <button type="submit" (click)="submitApplication()" routerLink="/table" class="primary">Zastosuj</button>
 </form> 

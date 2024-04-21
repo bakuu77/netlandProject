@@ -13,19 +13,19 @@ import { EmployeeTableComponent } from './employee-table/employee-table.componen
     imports: [RouterOutlet, FormComponent, EmployeeTableComponent]
 })
 export class AppComponent {
-  employees: EmployeeNetland[] = []
+  // employees: EmployeeNetland[] = []
 
-  constructor(private employeeService: EmployeeService) {}
+  // constructor(private employeeService: EmployeeService) {}
 
-  ngOnInit(): void {
-    console.log(this.employeeService.getFoo())
-    this.employeeService.getEmployees()
-      .subscribe((employees: EmployeeNetland[]) =>{
-        console.log("Res: ", employees);
-        this.employees = employees
-      })
-    // this.usersService.removeEmployee(id).subscribe(() => {
-    //   this.employees = this.employees.filter()
-    // });
-  }
+  // ngOnInit(): void {
+  //   console.log(this.employeeService.getFoo())
+  //   this.employeeService.getEmployees()
+  //     .subscribe((employees: EmployeeNetland[]) =>{
+  //       console.log("Res: ", employees);
+  //       this.employees = employees
+  //     })
+  //   // this.usersService.removeEmployee(id).subscribe(() => {
+  //   //   this.employees = this.employees.filter()
+  //   // });
+  // }
 }

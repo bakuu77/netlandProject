@@ -1,7 +1,7 @@
 import { Position } from './positions.enum';
 
 export interface EmployeeNetland {
-    id: string,
+    id: number,
     name: string;
     age: number;
     isFullTime: boolean;
