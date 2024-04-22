@@ -1,17 +1,21 @@
-<form [formGroup]="employeeForm">
-      <label for="imieNazwisko">Imie i nazwisko:</label>
-      <input type="text" id="imieNazwisko" formControlName="name">
-      <br>
-      <label for="wiek">Wiek:</label>
-      <input type="number" id="wiek" formControlName="age">
-      <br>
-      <label for="pelnyEtat">Czy pracuje na pelny etat?</label>
-      <input type="checkbox" id="pelnyEtat" formControlName="isFullTime">
-      <br>
-      <label for="Pozycja">Na jakiej pozycji sie znajduje?</label>
-      <select id="Pozycja" formControlName="position">
-        <option *ngFor="let pozycja of pozycje | keyvalue: sortPos">{{pozycja.value}}</option>
-      </select>
-      <hr>
-      <button type="submit" (click)="submitApplication()" routerLink="/table" class="primary">Zastosuj</button>
-</form> 
+<div class="employeeForm">
+  <h1>Podaj dane pracownika</h1>
+  <form [formGroup]="employeeForm" id="myForm">
+        <label class="inputLabel" for="imieNazwisko">Imie i nazwisko:</label>
+        <input class="input__text" placeholder="Podaj imię i nazwisko" type="text" id="imieNazwisko" formControlName="name">
+        <br>
+        <label class="inputLabel" for="wiek">Wiek:</label>
+        <input class="input__text" placeholder="Podaj wiek" type="text" id="wiek" formControlName="age">
+        <br>
+        <label class="inputLabel" for="pelnyEtat">Czy pracuje na pelny etat?</label>
+        <input class="input__check" type="checkbox" id="pelnyEtat" value="Tak" formControlName="isFullTime">
+        <br>
+        <label class="inputLabel" for="Pozycja">Na jakiej pozycji sie znajduje?</label>
+        <select class="input__select" id="Pozycja" formControlName="position">
+          <option value="" disabled></option>
+          <option *ngFor="let pozycja of pozycje | keyvalue: sortPos">{{pozycja.value}}</option>
+        </select>
+        <br>
+        <button [disabled]="!employeeForm.valid" type="submit" (click)="submitApplication()" routerLink="/table" class="primary">Zastosuj</button>
+      </form>
+</div> 

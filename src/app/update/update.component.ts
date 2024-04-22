@@ -1,20 +1,17 @@
-
+import { Component } from '@angular/core';
+import { EmployeeService } from '../services/employee.service';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Position } from '../positions.enum';
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { EmployeeService } from '../services/employee.service';
-import { RouterLink, RouterLinkActive, RouterModule, RouterOutlet } from '@angular/router';
-
 
 @Component({
-  selector: 'app-form',
+  selector: 'app-update',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule, RouterOutlet, RouterLink, RouterLinkActive],
-  templateUrl: './form.component.html',
-  styleUrl: './form.component.scss'
+  imports: [ ReactiveFormsModule, CommonModule ],
+  templateUrl: './update.component.html',
+  styleUrl: './update.component.scss'
 })
-export class FormComponent {
+export class UpdateComponent {
   pozycje = Position;
   constructor(private employeeService: EmployeeService, private formBuilder: FormBuilder ) {}
   employeeForm: FormGroup = new FormGroup({
@@ -54,15 +51,15 @@ export class FormComponent {
       }
     )
   }
-  addEmployee(name: string, age: number, isFullTime: boolean, position: Position): void {
-    this.employeeService.addEmployee(name, age, isFullTime, position).subscribe()
-  }
+  // updateEmployee(id:number ,name: string, age: number, isFullTime: boolean, position: Position): void {
+  //   this.employeeService.updateEmployee(id, name, age, isFullTime, position).subscribe()
+  // }
   submitApplication():void {
-    this.addEmployee(
-      this.employeeForm.getRawValue().name,
-      this.employeeForm.getRawValue().age,
-      this.employeeForm.getRawValue().isFullTime,
-      this.employeeForm.getRawValue().position)
+    // this.updateEmployee(
+    //   this.employeeForm.getRawValue().name,
+    //   this.employeeForm.getRawValue().age,
+    //   this.employeeForm.getRawValue().isFullTime,
+    //   this.employeeForm.getRawValue().position)
   };
   sortPos() { return 0 };
 }

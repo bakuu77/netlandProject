@@ -13,20 +13,30 @@ export class EmployeeService {
     }
     constructor(private http: HttpClient) {}
     getEmployees(): Observable<EmployeeNetland[]> {
-        return this.http.get<EmployeeNetland[]>(`https://bakuu77.github.io/api_host/db.json`)
+        return this.http.get<EmployeeNetland[]>(`https://apinetlandbaku.pythonanywhere.com/employees/?format=json`)
     }
     removeEmployee(id: number): Observable<{}> {
-        return this.http.delete(`https://bakuu77.github.io/api_host/db.json/${id}`)
+        return this.http.delete(`https://apinetlandbaku.pythonanywhere.com/employees/${id}`)
     }
-    addUser(name: string, age: number, isFullTime: boolean, position: Position): Observable<EmployeeNetland> {
+    addEmployee(name: string, age: number, isFullTime: boolean, position: Position): Observable<EmployeeNetland> {
         const random = Math.random() * Math.pow(10, 16)
         const employee = {
+            id: random,
             name,
             age,
             isFullTime,
-            position,
-            id: random
+            position
         }
-        return this.http.post<EmployeeNetland>(`https://bakuu77.github.io/api_host/db.json`, employee)
+        return this.http.post<EmployeeNetland>(`https://apinetlandbaku.pythonanywhere.com/employees/`, employee)
     }
+    // updateEmployee(id:number ,name: string, age: number, isFullTime: boolean, position: Position): Observable<EmployeeNetland> {
+    //     const employee = {
+    //         id, 
+    //         name,
+    //         age,
+    //         isFullTime,
+    //         position
+    //     }
+    //     return this.http.put<EmployeeNetland>(`https://apinetlandbaku.pythonanywhere.com/employees/`, employee)
+    // }
 }
